@@ -13,10 +13,9 @@ function amountToFillAllPots(arrList, len) {		//Количество запол�
 		for (let j = i + 1; j < len; j++) {
 			right = Math.max(right, arrList[j]);
 		}
-
+		
 		res += Math.min(left, right) - arrList[i];
 	}
-
 	return res;
 }
 
