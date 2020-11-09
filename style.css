@@ -1,0 +1,189 @@
+body {
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	grid-area: header;
+	padding-bottom: 10px;
+	border-bottom: 1px solid gray;
+	margin-right: 10px;
+}
+
+header div {
+	background-color: grey;
+	color: rgb(255, 255, 255);
+}
+
+header div:first-child {
+	width: 7%;
+	height: auto;
+	margin-right: 20px;
+}
+
+header div:nth-child(2) {
+	width: 43%;
+	height: auto;
+	margin-right: 20px;
+}
+
+header div:nth-child(3) {
+	text-align: right;
+	padding-right: 10px;
+	width: 50%;
+	height: auto;
+	justify-content: center;
+}
+
+a {
+	color: rgb(255, 255, 255);
+}
+
+aside {
+	grid-area: sidebar;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+aside div {
+	background-color: grey;
+	color: rgb(255, 255, 255);
+	text-align: left;
+}
+
+aside div:first-child {
+	height: fit-content;
+}
+
+aside div:last-child {
+	width: auto;
+	height: 100px;
+}
+
+aside ul {
+	padding-left: 15px;
+}
+
+main {
+	grid-area: main;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+main div {
+	margin-right: 10px;
+	background-color: rgb(209, 209, 209);
+}
+
+main div p {
+	padding-left: 10px;
+}
+
+.container {
+	height: 100%;
+	display: grid;
+	grid-template-areas:
+		"header header"
+		"sidebar main"
+		"footer footer";
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 120px auto 100px;
+	padding: 10px;
+}
+
+footer {
+	grid-area: footer;
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid grey;
+	padding-top: 10px;
+	margin-right: 10px;
+}
+
+footer div {
+	width: 32%;
+	background-color: grey;
+	height: 150px;
+	color: rgb(255, 255, 255);
+}
+
+footer :first-child ul {
+	column-count: 2;
+}
+
+footer div:last-child {
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#firstBlockFooter li,
+#sideBlock li {
+	list-style-type: none;
+}
+
+#emptyMain {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: rgb(255, 255, 255);
+}
+
+#emptyMain div {
+	width: 130px;
+	height: 160px;
+	margin-right: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: rgb(209, 209, 209);
+}
+
+#mainLowContent {
+	display: flex;
+	background-color: rgb(255, 255, 255);
+	justify-content: space-between;
+}
+
+#mainLowContent div {
+	height: content-box;
+	background-color: rgb(209, 209, 209);
+	width: 49.5%;
+}
+
+#emptyFooter {
+	height: 40%;
+	background-color: grey;
+	width: auto;
+}
+
+#secondBlockFooter li {
+	list-style-type: square;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		max-width: 970;
+	}
+}
+
+@media (max-width: 992px) {
+	.container {
+		max-width: 750px;
+	}
+}
+
+@media (max-width: 767px) {
+	.container {
+		max-width: none;
+	}
+}
