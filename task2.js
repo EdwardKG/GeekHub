@@ -1,15 +1,15 @@
-function amountToFillAllPots(arrList, len) {
+function amountToFillAllPots(arrList, len) {		//Количество заполненых водой ячеек
 	let res = 0;
 
-	for (let i = 1; i < len - 1; i++) {
+	for (let i = 1; i < len - 1; i++) {				// Поиск Левой и Правой максимальной высоты
 		let left = arrList[i];
 
 		for (let j = 0; j < i; j++) {
 			left = Math.max(left, arrList[j]);
 		}
-		
+
 		let right = arrList[i];
-		
+
 		for (let j = i + 1; j < len; j++) {
 			right = Math.max(right, arrList[j]);
 		}
