@@ -15,6 +15,14 @@ function findMaximum(arrList) {
 }
 
 
+function calcSum(arrList) {
+	let res = 0;
+	for (let i = 0; i < arrList.length; i++) {
+		res += arrList[i];
+	}
+	return res;
+}
+
 
 function findMinimum(arrList) {
 	let minValue = arrList[0];
@@ -28,15 +36,20 @@ function findMinimum(arrList) {
 
 alert(findMaximum(arrList1));
 alert(findMinimum(arrList1));
+alert(calcSum(arrList1));
 
 alert(findMaximum(arrList2));
 alert(findMinimum(arrList2));
+alert(calcSum(arrList2));
 
 alert(findMaximum(arrList3));
 alert(findMinimum(arrList3));
+alert(calcSum(arrList3));
 
 alert(findMaximum(arrList4));
 alert(findMinimum(arrList4));
+alert(calcSum(arrList4));
 
 alert(findMaximum(arrList5));
 alert(findMinimum(arrList5));
+alert(calcSum(arrList5));

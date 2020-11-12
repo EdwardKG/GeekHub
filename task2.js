@@ -1,6 +1,6 @@
-function amountToFillAllPots(arrList, len) {		//Количество заполненых водой ячеек
+function amountToFillAllPots(arrList) {		//Количество заполненых водой ячеек
 	let res = 0;
-
+	let len = arrList.length;
 	for (let i = 1; i < len - 1; i++) {				// Поиск Левой и Правой максимальной высоты
 		let left = arrList[i];
 
@@ -21,29 +21,22 @@ function amountToFillAllPots(arrList, len) {		//Количество запол�
 }
 
 let arrList1 = [2, 5, 1, 3, 1, 2, 1, 7, 7, 6];
-let len = arrList1.length;
-document.writeln(amountToFillAllPots(arrList1, len));
+document.writeln(amountToFillAllPots(arrList1));
 
 let arrList2 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 0];
-len = arrList2.length;
-document.writeln(amountToFillAllPots(arrList2, len));
+document.writeln(amountToFillAllPots(arrList2));
 
 let arrList3 = [7, 0, 1, 3, 4, 1, 2, 1];
-len = arrList3.length;
-document.writeln(amountToFillAllPots(arrList3, len));
+document.writeln(amountToFillAllPots(arrList3));
 
 let arrList4 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 0];
-len = arrList4.length;
-document.writeln(amountToFillAllPots(arrList4, len));
+document.writeln(amountToFillAllPots(arrList4));
 
 let arrList5 = [2, 2, 1, 2, 2, 3, 0, 1, 2];
-len = arrList5.length;
-document.writeln(amountToFillAllPots(arrList5, len));
+document.writeln(amountToFillAllPots(arrList5));
 
 let arrList6 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8];
-len = arrList6.length;
-document.writeln(amountToFillAllPots(arrList6, len));
+document.writeln(amountToFillAllPots(arrList6));
 
 let arrList7 = [2, 2, 2, 2, 2];
-len = arrList7.length;
-document.writeln(amountToFillAllPots(arrList7, len));
+document.writeln(amountToFillAllPots(arrList7));
