@@ -172,7 +172,7 @@ new Promise((resolve, reject) => {
 		btnWater.addEventListener('click', water);
 		btnPet.addEventListener('click', pet);
 		btnSleep.addEventListener('click', sleep);
-		btnClean.addEventListener('click', clean);
+		btnClean.addEventListener('click', clean); 
 		setInterval(function () {
 			passTime();
 		}, 5000);

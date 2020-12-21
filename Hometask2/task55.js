@@ -65,4 +65,4 @@ const myFind = (currentFunc, arr) => {
 return element;
 };
 
-console.log(myFind(check, [2, 3, 4]));
+console.log(myFind(check, [2, 3, 4]));  

@@ -2,7 +2,7 @@ class Calculate {
 	constructor(val) {
 		this.value = val;
 	}
-	add(tempVal) {
+	add(tempVal) { 
 		this.value += tempVal;
 		return this;
 	}

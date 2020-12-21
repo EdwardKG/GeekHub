@@ -6,7 +6,7 @@ function sum(val) {
 	}
 
 	func.toString = function () {
-		return currentSum;
+		return currentSum; 
 	};
 	return func;
 }
