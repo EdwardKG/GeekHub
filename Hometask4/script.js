@@ -10,7 +10,7 @@ input.addEventListener('keyup', function (e) {
 
 
 class MyPromise {
-	constructor(executor) {
+	constructor(executor) {				
 		this.status = "pending";
 		// This array is used to store all the onResolve functions in the chaining call
 		this.resolveArr = [];
