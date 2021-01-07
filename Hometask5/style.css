@@ -1,0 +1,62 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	width: 100%;
+	height: 100px;
+	display: block;
+	margin: 8px;
+	color: white;
+}
+
+div {
+	display: block;
+}
+
+.wrapper{
+	height: 512px;
+	width: 512px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #000;
+}
+
+.wrapper .wrapperforbutton{
+	position: absolute;
+   border-radius: 5px;
+   background-color: rgba(34,34,34,.75);
+   opacity: .9;
+   border: 1px solid #000;
+   cursor: pointer;
+}
+
+.wrapper .wrapperforbutton .btn{
+	padding:5px 15px;
+	display:inline-block;
+	user-select:none;
+	white-space:nowrap;
+}
+
+.wrapper .wrapperforbutton .delete{
+	position:absolute;
+	top:-1px;
+	padding:5px;
+	border-radius:5px;
+	background-color:rgba(34,34,34,.75);
+	border:1px solid #000;
+	cursor:pointer;
+}
+
+.wrapper .wrapperforbutton .pull-left{
+	right:100%;
+}
+
+.wrapper .wrapperforbutton .delete.hide{
+	visibility:hidden;
+}
+
