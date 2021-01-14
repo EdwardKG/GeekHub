@@ -7,7 +7,7 @@ class TodoList extends PureComponent {
 
         return(
             <ul>
-                {
+                {	
                     list.map((todo, i) => {
                         return <TodoItem todo = {todo} key = {i} removeTodo = {removeTodo} toggleTodo = {toggleTodo} />
                     })

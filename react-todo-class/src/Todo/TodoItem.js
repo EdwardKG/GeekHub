@@ -6,7 +6,7 @@ class TodoItem extends Component {
 		 const removeTodo = this.props.removeTodo
 		 const toggleTodo = this.props.toggleTodo
 
-		 const classes = []
+		 const classes = []	
 
 		 if(completed) {
 			classes.push('done')
