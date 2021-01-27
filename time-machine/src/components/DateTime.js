@@ -7,11 +7,9 @@ export const DateTime = () => {
 	
 	var [date, setDate] = useState(new Date());
 	var normalTime = spacetime.now();
-	var twelveMode = spacetime.now();
-	var timeOfDay = null;
-	var enabled = false;
-	var additionalBlock = document.getElementById('#additionalBlock');
+	const addBl = document.querySelector('.additionalBlock');
 	const [selectedTimezone, setSelectedTimezone] = useState({})
+
 	
 	useEffect(() => {
 		var timer = setInterval(() => setDate(new Date()), 1000);
@@ -30,26 +28,91 @@ export const DateTime = () => {
 		}
 	}
 
+		const getResult = () => {
+			if(document.querySelector('.btn').classList.contains('24')){
+
+				document.querySelector('.btn').innerHTML = "Transform clock to 24h version";
+
+				let valueP = document.querySelector('.hour').textContent;
+				let finallValue = Number(valueP) - 12;
+				
+				addBl.style.display = 'inline';
+
+				if (finallValue < 0){
+					document.querySelector('.hour-p').textContent = valueP;
+				} else {
+					document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+				}
+				
+			}else{
+				document.querySelector('.btn').innerHTML = "Transform clock to 12h version";
+				let valueP = document.querySelector('.hour').textContent;
+				let finallValue = Number(valueP) + 12;
+					if (addBl.innerHTML === "<p>AM</p>") {
+						document.querySelector('.hour-p').innerHTML = String(valueP);
+					}else {
+
+						document.querySelector('.hour-p').innerHTML = String(getZero(finallValue));
+					}
+					addBl.style.display = 'none';
+			}
+		}
+
 	const chageBtnTimeMode = () => {
-		if (document.querySelector('.btn').textContent === 'Transform clock to 12h version'){
-			document.querySelector('.btn').textContent = 'Transform clock to 24h version';
-			getResult(enabled = true);
-		} else {
-			document.querySelector('.btn').textContent = 'Transform clock to 12h version';
-			getResult(enabled = false);
-			return timeOfDay = null;
-		}
+		document.querySelector('.btn').classList.toggle('24');
+		getResult();
 	}
-
-	const getResult = (enabled) => {
-		if (enabled){
-
-			twelveMode.hour = (normalTime.hour > 12) ? normalTime.hour - 12 : normalTime.hour;
-			twelveMode.hour = (twelveMode.hour === 0) ? 12 : twelveMode.hour;
-		}
-	}
-
 	
+	
+	const plusHour = () => {
+		let valueP = document.querySelector('.hour').textContent;
+		let finallValue = Number(valueP) + 1;
+		if ((document.querySelector('.btn').innerHTML === "Transform clock to 12h version") && (finallValue >= 24)) {
+			finallValue = 0;
+			document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+		} else if ((document.querySelector('.btn').innerHTML === "Transform clock to 24h version") && (finallValue >= 12)) {
+			finallValue = 0;
+			document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+		} else {
+			document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+		}
+	}
+
+	const minusHour = () => {
+		let valueP = document.querySelector('.hour').textContent;
+		let finallValue = Number(valueP) - 1;
+		if ((document.querySelector('.btn').innerHTML === "Transform clock to 12h version") && (finallValue <= 0)) {
+			finallValue = 23;
+			document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+		} else if ((document.querySelector('.btn').innerHTML === "Transform clock to 24h version") && (finallValue <= 0)) {
+			finallValue = 11;
+			document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+		} else {
+			document.querySelector('.hour-p').textContent = String(getZero(finallValue));
+		}
+	}
+
+	const plusMinute = () => {
+		let valueP = document.querySelector('.minute').textContent;
+		let finallValue = Number(valueP) + 1;
+		if (finallValue >= 60) {
+			finallValue = 0;
+			document.querySelector('.minute-p').textContent = String(getZero(finallValue));
+		} else {
+			document.querySelector('.minute-p').textContent = String(getZero(finallValue));
+		}
+	}
+
+	const minusMinute = () => {
+		let valueP = document.querySelector('.minute').textContent;
+		let finallValue = Number(valueP) - 1;
+		if (finallValue <= 0) {
+			finallValue = 59;
+			document.querySelector('.minute-p').textContent = String(getZero(finallValue));
+		} else {
+			document.querySelector('.minute-p').textContent = String(getZero(finallValue));
+		}
+	}
 
 	return(
 		<span>
@@ -64,15 +127,28 @@ export const DateTime = () => {
 		<button className="btn" onClick={chageBtnTimeMode}>Transform clock to 12h version</button>
 			<div className="promotion__timer">
 				<div className="timer">
-					<div className="time hour"><p>{getZero(normalTime.goto(selectedTimezone.value).hour())}</p></div>
-					<div className="time minute"><p>{getZero(normalTime.goto(selectedTimezone.value).minute())}</p></div>
+					<div className="time hour"><p className='hour-p'>{getZero(normalTime.goto(selectedTimezone.value).hour())}</p></div>
+					<div className="time minute"><p className='minute-p'>{getZero(normalTime.goto(selectedTimezone.value).minute())}</p></div>
 					<div className="time second"><p>{getZero(normalTime.goto(selectedTimezone.value).second())}</p></div>
-					<div id="additionalBlock" className="hide"><p>{timeOfDay = (normalTime.hour < 12) ? "AM" : "PM"}</p></div>
+					<div className="time additionalBlock hide"><p>{(normalTime.goto(selectedTimezone.value).hour() < 12) ? "AM" : "PM"}</p></div>
 				</div>
+			</div>
+		</div>
+		<div className="plusAndMinus" style={{flexWrap: "wrap", minWidth: "120px", margin: "20px"}}>
+			<div style={{position: "relative", textAlign: "center", margin: "10px"}}>
+				<button className="minus" onClick={minusHour}>-</button>	
+				<span style={{display: "inline-block", width: "50px", minWidth: "50px", maxWidth: "50px", marginLeft: "25px"}}>hour</span>
+				<button className="plus" onClick={plusHour}>+</button>
+			</div>
+
+			<div style={{position: "relative", textAlign: "center", margin: "10px"}}>
+				<button className="minus" onClick={minusMinute}>-</button>	
+				<span style={{display: "inline-block", width: "50px", minWidth: "50px", maxWidth: "50px", marginLeft: "25px"}}>minute</span>
+				<button className="plus" onClick={plusMinute}>+</button>
 			</div>
 		</div>
 		</span>
 	);
 }
 
-export default DateTime;//dateFenes
+export default DateTime;//dateFenes 

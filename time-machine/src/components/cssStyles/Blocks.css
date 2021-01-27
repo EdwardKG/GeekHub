@@ -12,6 +12,24 @@ button {
 }
 
 
+.plusAndMinus button{
+	position:relative;
+	width: 30px;
+	height: 30px;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	font-size: 22px;
+}
+
+button .pmAm {
+	position:relative;
+	width: 50px;
+	height: 30px;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	font-size: 12px;
+}
+
 
 .container{
 	display:flex;
@@ -47,6 +65,4 @@ button {
 	display: none;
 }
 
-.show {
-	display: block;
-}
+
